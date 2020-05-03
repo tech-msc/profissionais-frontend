@@ -1,16 +1,44 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { EstabelecimentoService } from './estabelecimento/estabelecimento.service'
+import { ProfissionalService } from './profissional/profissional.service'
+import { ROUTES } from './app.routes'
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+
+import { AppComponent } from './app.component'
+import { ProfissionalComponent } from './profissional/profissional.component'
+import { EstabelecimentoComponent } from './estabelecimento/estabelecimento.component'
+import { HomeComponent } from './home/home.component'
+import { HeaderComponent } from './header/header.component'
+import { FooterComponent } from './footer/footer.component'
+import { EstabelecimentoItemComponent } from './estabelecimento/estabelecimento-item/estabelecimento-item.component'
+import { ProfissionalItemComponent } from './profissional/profissional-item/profissional-item.component'
+import { RouterModule } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfissionalComponent,
+    EstabelecimentoComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    EstabelecimentoItemComponent,
+    ProfissionalItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(ROUTES),
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [ProfissionalService, EstabelecimentoService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
