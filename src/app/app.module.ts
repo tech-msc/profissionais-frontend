@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
 import { AppBootstrapModule } from './app-bootstrap.module'
 
-
+import { FormsModule } from '@angular/forms'
 
 
 
@@ -36,7 +36,8 @@ import { AppBootstrapModule } from './app-bootstrap.module'
     BrowserModule,
     RouterModule.forRoot(ROUTES),
     HttpClientModule,
-    AppBootstrapModule
+    AppBootstrapModule,
+    FormsModule
 
   ],
   providers: [ProfissionalService, EstabelecimentoService],

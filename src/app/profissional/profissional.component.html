@@ -15,8 +15,7 @@
 <div class="row">
   <div class="container">
     <div class="mt-2">
-      <div class="d-flex justify-content-center"
-        *ngIf="profissionais">
+      <div class="d-flex justify-content-center" *ngIf="profissionais">
         <div class="table-responsive ml-2 mr-2">
           <table class="table table-hover">
             <thead>
@@ -35,11 +34,13 @@
                 <td>{{ item.nome }}</td>
                 <td>{{ item.endereco }}</td>
                 <td>{{ item.estabelecimento_id }}</td>
-                <td> <a (click)="openModal2(editarModal,item)">
-                  <i class="fa fa-edit"></i> editar</a>
+                <td>
+                  <a (click)="openModal2(editarModal, item)">
+                    <i class="fa fa-edit"></i> editar</a
+                  >
                 </td>
                 <td>
-                  <a (click)="openModal2(excluirModal,item)">
+                  <a (click)="openModal2(excluirModal, item)">
                     <i class="fa fa-trash"></i> excluir
                   </a>
                 </td>
@@ -70,16 +71,12 @@
       Adicionar fulano
     </div>
 
-
     <div class="modal-footer">
       <button class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
       <button class="btn btn-info">Salvar</button>
     </div>
-
-
   </ng-template>
 </div>
-
 
 <!-- Modal Editar -->
 <div class="modais-area">
@@ -96,43 +93,57 @@
       </button>
     </div>
     <div class="modal-body">
-
       <div class="form-group">
         <label for="id-form">Id</label>
-        <input type="text" class="form-control"
-        id="id-form"
-        value="{{profissionalSelected.id}}" disabled>
+        <input
+          type="text"
+          class="form-control"
+          id="id-form"
+          value="{{ profissionalSelected.id }}"
+          disabled
+        />
       </div>
 
       <div class="form-group">
         <label for="nome-form">Nome</label>
-        <input type="text" class="form-control" id="nome-form" aria-describedby="nomeHelp" value="{{profissionalSelected.nome}}">
+        <input
+          type="text"
+          class="form-control"
+          id="nome-form"
+          aria-describedby="nomeHelp"
+          value="{{ profissionalSelected.nome }}"
+        />
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Endereço</label>
-        <input type="text" class="form-control" id="endereco-form" value="{{profissionalSelected.endereco}}">
+        <input
+          type="text"
+          class="form-control"
+          id="endereco-form"
+          value="{{ profissionalSelected.endereco }}"
+        />
       </div>
 
       <label for="estabelecimento-form">Estabelecimento</label>
-      <select class="form-control" id="estabelecimento-form">
-        <option disabled="disabled"
-          selected="{{profissionalSelected.estabelecimento_id}}">{{profissionalSelected.estabelecimento_id}}</option>
+
+      <select class="form-control" id="estabelecimento-form"
+        [(ngModel)]="profissionalSelected.estabelecimento_id">
         <optgroup *ngFor="let item of estabelecimentos">
           <option>{{item.id}}</option>
         </optgroup>
-
       </select>
 
+
       <div class="modal-footer">
-        <button class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
+        <button class="btn btn-light" (click)="modalRef.hide()">
+          Cancelar
+        </button>
         <button class="btn btn-info">Salvar</button>
       </div>
-
     </div>
   </ng-template>
 </div>
-
 
 <!-- Modal Excluir -->
 <div class="modais-area">
@@ -150,7 +161,7 @@
     </div>
     <div class="modal-body">
       <a class="text-danger">Confirmar exclusão de</a>
-      {{profissionalSelected.nome}} ?
+      {{ profissionalSelected.nome }} ?
     </div>
 
     <div class="modal-footer">

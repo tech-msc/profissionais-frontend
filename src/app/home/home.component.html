@@ -1,33 +1,27 @@
-<div class="">
-<h1>HOME Component</h1>
-<hr>
+<div class="container">
+  <h1>HOME Component</h1>
+  <hr />
 
+  <article class="flex justify-center">
+    <div class="fl w-25 bg-light-green tc">
+      <a
+        [routerLink]="['/estabelecimento']"
+        routerLinkActive="router-link-active"
+      >
+        <h2>Estabelecimentos</h2>
+      </a>
+    </div>
+    <div class="fl w-25 bg-washed-red tc">
+      <a [routerLink]="['/profissional']" routerLinkActive="router-link-active">
+        <h2>Profissionais</h2>
+      </a>
+    </div>
+  </article>
 
-
-<article class="flex justify-center">
-  <div class="fl w-25 bg-light-green tc">
-    <a [routerLink]="['/estabelecimento']"
-      routerLinkActive="router-link-active" >
-      <h2>Estabelecimentos</h2>
-    </a>
-  </div>
-  <div class="fl w-25 bg-washed-red tc">
-    <a [routerLink]="['/profissional']"
-     routerLinkActive="router-link-active" >
-      <h2>Profissionais</h2>
-    </a>
-  </div>
-</article>
-
-
-<!-- <div class="d-flex justify-content-center">
+  <!-- <div class="d-flex justify-content-center">
   <button type="button" class="btn btn-secondary">Estabelecimentos</button>
   <button type="button" class="btn btn-secondary">Profissionais</button>
 </div> -->
 
-
-
-<hr>
+  <hr />
 </div>
-
-
