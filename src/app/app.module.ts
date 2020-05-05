@@ -14,8 +14,9 @@ import { FooterComponent } from './footer/footer.component'
 import { EstabelecimentoItemComponent } from './estabelecimento/estabelecimento-item/estabelecimento-item.component'
 import { ProfissionalItemComponent } from './profissional/profissional-item/profissional-item.component'
 import { RouterModule } from '@angular/router'
-import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { HttpClientModule } from '@angular/common/http'
+import { AppBootstrapModule } from './app-bootstrap.module'
+
 
 
 
@@ -35,7 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     BrowserModule,
     RouterModule.forRoot(ROUTES),
     HttpClientModule,
-    NgbModule
+    AppBootstrapModule
+
   ],
   providers: [ProfissionalService, EstabelecimentoService],
   bootstrap: [AppComponent]

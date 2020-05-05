@@ -1,37 +1,115 @@
 <div class="row">
   <div class="container">
-    <h2>Profissionais Cadastrados</h2>
+    <div class="mt-4">
+      <div class="d-flex justify-content-between">
+        <h2>Profissionais Cadastrados</h2>
 
-    <p></p>
-    <a href="#">Criar Novo</a>
-    <p></p>
-
-    <div class="d-flex justify-content-left" *ngIf="profissionais">
-      <div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">NOME</th>
-              <th scope="col">ENDERECO</th>
-              <th scope="col">ESTABELECIMENTO</th>
-              <th scope="col" colspan="2">AÇÕES</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let item of profissionais">
-
-            <!-- transformar em um seletor com parametro [estabelecimento]="item" -->
-            <tr>
-              <td>{{ item.id }}</td>
-              <td>{{ item.nome }}</td>
-              <td>{{ item.endereco }}</td>
-              <td>{{ item.estabelecimento_id }}</td>
-              <td>editar</td>
-              <td>excluir</td>
-            </tr>
-          </tbody>
-        </table>
+        <button class="btn btn-info" (click)="openModal(adicionarModal)">
+          Criar Novo
+        </button>
       </div>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="container">
+    <div class="mt-2">
+      <div class="d-flex justify-content-center"
+        *ngIf="profissionais">
+        <div class="table-responsive ml-2 mr-2">
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOME</th>
+                <th scope="col">ENDERECO</th>
+                <th scope="col">ESTABELECIMENTO</th>
+                <th scope="col" colspan="2">AÇÕES</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of profissionais">
+              <!-- transformar em um seletor com parametro [estabelecimento]="item" -->
+              <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.endereco }}</td>
+                <td>{{ item.estabelecimento_id }}</td>
+                <td> <a (click)="openModal(editarModal)">
+                  <i class="fa fa-edit"></i> editar</a>
+                </td>
+                <td>
+                  <a (click)="openModal(excluirModal)">
+                    <i class="fa fa-trash"></i> excluir
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Adicionar -->
+<div class="modais-area">
+  <ng-template #adicionarModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Novo Profissional</h4>
+      <button
+        type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="modalRef.hide()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Adicionar fulano
+    </div>
+  </ng-template>
+</div>
+
+
+<!-- Modal Editar -->
+<div class="modais-area">
+  <ng-template #editarModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Editar Profissional</h4>
+      <button
+        type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="modalRef.hide()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Editar Fulano
+    </div>
+  </ng-template>
+</div>
+
+
+<!-- Modal Excluir -->
+<div class="modais-area">
+  <ng-template #excluirModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Remover Profissional</h4>
+      <button
+        type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="modalRef.hide()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <a class="text-danger">Confirmar exclusão de</a>
+    </div>
+  </ng-template>
 </div>

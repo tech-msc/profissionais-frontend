@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, TemplateRef } from '@angular/core'
 import { Profissional } from './profissional.model'
 import { ProfissionalService } from './profissional.service'
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
+
 
 @Component({
   selector: 'app-profissional',
@@ -10,10 +12,15 @@ import { ProfissionalService } from './profissional.service'
 })
 export class ProfissionalComponent implements OnInit {
 
-  constructor(private profissionalService: ProfissionalService) { }
+  constructor(
+    private profissionalService: ProfissionalService,
+    private modalService: BsModalService) { }
 
   profissionais: Profissional[]
   profissional: Profissional
+
+  // Modal
+  modalRef: BsModalRef
 
   ngOnInit(): void {
     this.getProfissionais()
@@ -51,6 +58,12 @@ export class ProfissionalComponent implements OnInit {
     this.profissionalService
     .profissionalNovo(profissional)
       .subscribe( data => this.profissional = data)
+  }
+
+  // Modal
+  openModal(template: TemplateRef<any>){
+    this.modalRef = this.modalService
+      .show(template)
   }
 
 }
