@@ -9,8 +9,7 @@ import { EstabelecimentoService } from '../estabelecimento/estabelecimento.servi
 @Component({
   selector: 'app-profissional',
   templateUrl: './profissional.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class ProfissionalComponent implements OnInit {
 
@@ -27,6 +26,7 @@ export class ProfissionalComponent implements OnInit {
 
   // Modal
   profissionalSelected: any
+  profissionalSelectedId = 0
   modalData = []
 
   // Modal
@@ -89,7 +89,8 @@ export class ProfissionalComponent implements OnInit {
 
   openModal2(template: TemplateRef<any>, item?: any){
     const initialState = [
-      this.profissionalSelected = item
+      this.profissionalSelected = item ,
+      this.profissionalSelectedId = item.estabelecimento_id
     ]
     this.modalRef = this.modalService
       .show(template, {initialState})
