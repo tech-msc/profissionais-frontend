@@ -11,6 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators'
 export class ProfissionalService {
   constructor(private http: HttpClient) {}
 
+
   profissionais(): Observable<Profissional[]> {
     return this.http
       .get<Profissional[]>(`${API}/profissional`)
@@ -49,7 +50,4 @@ export class ProfissionalService {
       catchError(ErrorHandler.handleError('create profissional')
     ))
   }
-
-
-
 }
