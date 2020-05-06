@@ -54,7 +54,7 @@
 </div>
 
 <!-- Modal Adicionar -->
-<div class="modais-area">
+<div>
   <ng-template #adicionarModal>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Novo Profissional</h4>
@@ -67,19 +67,57 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
-      Adicionar fulano
+    <div class="modal-body" [formGroup]="formularioCadastro">
+      <div class="form-group">
+        <label for="nome_add_form">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="nome_add_form"
+          aria-describedby="nomeHelp"
+        />
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group">
+        <label for="endereco_add_form">Endereço</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="endereco_add_form"
+        />
+      </div>
+
+      <label for="estabelecimento_add_form">Estabelecimento</label>
+
+      <select class="form-control" formControlName="estabelecimento_add_form">
+        <!-- editar -->
+        <option [ngValue]="null" selected>Selecione um estabelecimento</option>
+        <optgroup *ngFor="let item of estabelecimentos">
+          <option>{{ item.nome }}</option>
+        </optgroup>
+      </select>
     </div>
 
+    <!-- (click)="formularioCadastroSubmit()" -->
     <div class="modal-footer">
       <button class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
-      <button class="btn btn-info">Salvar</button>
+      <button
+        class="btn btn-info"
+        (click)="formularioCadastroSubmit()"
+        [disabled]="!formularioCadastro.valid"
+      >
+        Salvar
+      </button>
     </div>
   </ng-template>
 </div>
+<!--=== End       ===========
+                        ===== Modal     ===========
+                        ===== Adicionar ===========
+                      -->
 
 <!-- Modal Editar -->
-<div class="modais-area">
+<div>
   <ng-template #editarModal>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Editar Profissional</h4>
@@ -92,61 +130,74 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+
     <div class="modal-body">
       <div class="form-group">
-        <label for="id-form">Id</label>
+        <label for="id_edit_form">Id</label>
         <input
           type="text"
           class="form-control"
-          id="id-form"
+          id="id_edit_form"
           value="{{ profissionalSelected.id }}"
           disabled
         />
       </div>
 
       <div class="form-group">
-        <label for="nome-form">Nome</label>
+        <label for="nome_edit_form">Nome</label>
         <input
           type="text"
           class="form-control"
-          id="nome-form"
+          id="nome_edit_form"
           aria-describedby="nomeHelp"
           value="{{ profissionalSelected.nome }}"
         />
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Endereço</label>
+        <label for="endereco_edit_form">Endereço</label>
         <input
           type="text"
           class="form-control"
-          id="endereco-form"
+          id="endereco_edit_form"
           value="{{ profissionalSelected.endereco }}"
         />
       </div>
 
-      <label for="estabelecimento-form">Estabelecimento</label>
+      <label for="estabelecimento_edit_form">Estabelecimento</label>
 
-      <select class="form-control" id="estabelecimento-form"
-        [(ngModel)]="profissionalSelected.estabelecimento_id">
+      <!-- <select
+        class="form-control"
+        id="estabelecimento_edit_form"
+        [(ngModel)]="profissionalSelected.estabelecimento_id"
+      >
         <optgroup *ngFor="let item of estabelecimentos">
-          <option>{{item.id}}</option>
+          <option>{{ item.id }}</option>
+        </optgroup>
+      </select> -->
+
+      <select
+        class="form-control"
+        id="estabelecimento_edit_form"
+        [(ngModel)]="profissionalSelected.estabelecimento_id"
+      >
+        <optgroup *ngFor="let item of estabelecimentos">
+          <option>{{ item.id }}</option>
         </optgroup>
       </select>
+    </div>
 
-
-      <div class="modal-footer">
-        <button class="btn btn-light" (click)="modalRef.hide()">
-          Cancelar
-        </button>
-        <button class="btn btn-info">Salvar</button>
-      </div>
+    <div class="modal-footer">
+      <button class="btn btn-light" (click)="modalRef.hide()">
+        Cancelar
+      </button>
+      <button class="btn btn-info">Salvar</button>
     </div>
   </ng-template>
 </div>
 
 <!-- Modal Excluir -->
-<div class="modais-area">
+<div>
   <ng-template #excluirModal>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Remover Profissional</h4>
@@ -160,13 +211,19 @@
       </button>
     </div>
     <div class="modal-body">
-      <a class="text-danger">Confirmar exclusão de</a>
-      {{ profissionalSelected.nome }} ?
+      <a class="text-danger">Deseja excluir </a>
+      {{ profissionalSelected.nome }}?
     </div>
 
     <div class="modal-footer">
+
       <button class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
-      <button class="btn btn-danger">Excluir</button>
+      <button
+        class="btn btn-danger"
+        (click)="removerProfissional(profissionalSelected)"
+      >
+        Excluir
+      </button>
     </div>
   </ng-template>
 </div>

@@ -17,4 +17,10 @@ export class EstabelecimentoService {
       .get<Estabelecimento[]>(`${API}/estabelecimento`)
       .pipe(catchError(ErrorHandler.handleError('get all estabelecimentos')))
   }
+
+  estabelecimentoPorID( id: number ): Observable<Estabelecimento> {
+    return this.http
+    .get<Estabelecimento>(`${API}/estabelecimento/${id}`)
+    .pipe(catchError(ErrorHandler.handleError('get estabelecimento by ID')))
+  }
 }
