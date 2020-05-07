@@ -1,4 +1,3 @@
-
 import { EstabelecimentoService } from './estabelecimento/estabelecimento.service'
 import { ProfissionalService } from './profissional/profissional.service'
 import { ROUTES } from './app.routes'
@@ -11,15 +10,11 @@ import { EstabelecimentoComponent } from './estabelecimento/estabelecimento.comp
 import { HomeComponent } from './home/home.component'
 import { HeaderComponent } from './header/header.component'
 import { FooterComponent } from './footer/footer.component'
-import { EstabelecimentoItemComponent } from './estabelecimento/estabelecimento-item/estabelecimento-item.component'
-import { ProfissionalItemComponent } from './profissional/profissional-item/profissional-item.component'
 import { RouterModule } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
 import { AppBootstrapModule } from './app-bootstrap.module'
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-
-
 
 @NgModule({
   declarations: [
@@ -28,9 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     EstabelecimentoComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent,
-    EstabelecimentoItemComponent,
-    ProfissionalItemComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,11 +31,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     HttpClientModule,
     AppBootstrapModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
   ],
   providers: [ProfissionalService, EstabelecimentoService],
-  bootstrap: [AppComponent]
-
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

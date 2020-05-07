@@ -96,7 +96,6 @@
       </select>
     </div>
 
-
     <div class="modal-footer">
       <button class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
       <button
@@ -159,39 +158,26 @@
 
       <label for="estabelecimento_edit_form">Estabelecimento</label>
 
+      <select class="form-control" formControlName="estabelecimento_edit_form">
+        <option [ngValue]="null" selected>Selecione um estabelecimento</option>
 
-      <select
-        class="form-control"
-        formControlName="estabelecimento_edit_form"
-      >
-      <option [ngValue]="null" selected>Selecione um estabelecimento</option>
-
-      <option *ngFor="let item of estabelecimentos"
-        [ngValue]="item.id"
-      >
-        {{item.nome}}
-      </option>
-
-
+        <option *ngFor="let item of estabelecimentos" [ngValue]="item.id">
+          {{ item.nome }}
+        </option>
       </select>
-
-
-      <!-- <p> {{ formularioEdicao | json }}</p>
-      <p>{{  formularioEdicao | valid }} </p> -->
     </div>
 
     <div class="modal-footer">
-
-      {{ formularioEdicao.value | json}}
-      {{ formularioEdicao.valid | json}}
-
       <button class="btn btn-light" (click)="modalRef.hide()">
         Cancelar
       </button>
-      <button class="btn btn-info"
-      [disabled]="!formularioEdicao.valid"
-      (click)="formularioEdicaoSubmit()"
-      >Salvar</button>
+      <button
+        class="btn btn-info"
+        [disabled]="!formularioEdicao.valid"
+        (click)="formularioEdicaoSubmit()"
+      >
+        Salvar
+      </button>
     </div>
   </ng-template>
 </div>
@@ -217,7 +203,6 @@
     </div>
 
     <div class="modal-footer">
-
       <button class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
       <button
         class="btn btn-danger"
