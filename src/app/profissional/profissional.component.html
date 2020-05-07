@@ -35,12 +35,12 @@
                 <td>{{ item.endereco }}</td>
                 <td>{{ item.estabelecimento_id }}</td>
                 <td>
-                  <a (click)="openModal2(editarModal, item)">
+                  <a (click)="openModalEdicao(editarModal, item)">
                     <i class="fa fa-edit"></i> editar</a
                   >
                 </td>
                 <td>
-                  <a (click)="openModal2(excluirModal, item)">
+                  <a (click)="openModalExclusao(excluirModal, item)">
                     <i class="fa fa-trash"></i> excluir
                   </a>
                 </td>
@@ -74,9 +74,7 @@
           type="text"
           class="form-control"
           formControlName="nome_add_form"
-          aria-describedby="nomeHelp"
         />
-        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
       <div class="form-group">
         <label for="endereco_add_form">Endereço</label>
@@ -98,7 +96,7 @@
       </select>
     </div>
 
-    <!-- (click)="formularioCadastroSubmit()" -->
+
     <div class="modal-footer">
       <button class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
       <button
@@ -111,10 +109,7 @@
     </div>
   </ng-template>
 </div>
-<!--=== End       ===========
-                        ===== Modal     ===========
-                        ===== Adicionar ===========
-                      -->
+<!--=== End Modal Adicionar === -->
 
 <!-- Modal Editar -->
 <div>
@@ -131,7 +126,7 @@
       </button>
     </div>
 
-    <div class="modal-body">
+    <div class="modal-body" [formGroup]="formularioEdicao">
       <div class="form-group">
         <label for="id_edit_form">Id</label>
         <input
@@ -148,9 +143,8 @@
         <input
           type="text"
           class="form-control"
-          id="nome_edit_form"
+          formControlName="nome_edit_form"
           aria-describedby="nomeHelp"
-          value="{{ profissionalSelected.nome }}"
         />
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
@@ -159,44 +153,51 @@
         <input
           type="text"
           class="form-control"
-          id="endereco_edit_form"
-          value="{{ profissionalSelected.endereco }}"
+          formControlName="endereco_edit_form"
         />
       </div>
 
       <label for="estabelecimento_edit_form">Estabelecimento</label>
 
-      <!-- <select
-        class="form-control"
-        id="estabelecimento_edit_form"
-        [(ngModel)]="profissionalSelected.estabelecimento_id"
-      >
-        <optgroup *ngFor="let item of estabelecimentos">
-          <option>{{ item.id }}</option>
-        </optgroup>
-      </select> -->
 
       <select
         class="form-control"
-        id="estabelecimento_edit_form"
-        [(ngModel)]="profissionalSelected.estabelecimento_id"
+        formControlName="estabelecimento_edit_form"
       >
-        <optgroup *ngFor="let item of estabelecimentos">
-          <option>{{ item.id }}</option>
-        </optgroup>
+      <option [ngValue]="null" selected>Selecione um estabelecimento</option>
+
+      <option *ngFor="let item of estabelecimentos"
+        [ngValue]="item.id"
+      >
+        {{item.nome}}
+      </option>
+
+
       </select>
+
+
+      <!-- <p> {{ formularioEdicao | json }}</p>
+      <p>{{  formularioEdicao | valid }} </p> -->
     </div>
 
     <div class="modal-footer">
+
+      {{ formularioEdicao.value | json}}
+      {{ formularioEdicao.valid | json}}
+
       <button class="btn btn-light" (click)="modalRef.hide()">
         Cancelar
       </button>
-      <button class="btn btn-info">Salvar</button>
+      <button class="btn btn-info"
+      [disabled]="!formularioEdicao.valid"
+      (click)="formularioEdicaoSubmit()"
+      >Salvar</button>
     </div>
   </ng-template>
 </div>
 
 <!-- Modal Excluir -->
+
 <div>
   <ng-template #excluirModal>
     <div class="modal-header">
@@ -227,3 +228,5 @@
     </div>
   </ng-template>
 </div>
+
+<!--===   End Modal Excluir  ===== -->

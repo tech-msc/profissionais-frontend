@@ -5,7 +5,7 @@ export class Profissional {
   // tslint:disable-next-line: variable-name
   estabelecimento_id: number
 
-  constructor(nome, endereco, estabelecimento_id){
+  constructor(nome: string, endereco: string, estabelecimento_id: number){
     this.nome = nome
     this.endereco = endereco
     this.estabelecimento_id = estabelecimento_id

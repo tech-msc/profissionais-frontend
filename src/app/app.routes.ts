@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component'
 import { ProfissionalComponent } from './profissional/profissional.component'
 import { Routes} from '@angular/router'
 
+
 const rotas = [
   {
     path: '',
@@ -15,7 +16,7 @@ const rotas = [
   {
     path: 'profissional',
     component: ProfissionalComponent
-  },
+  }
 ]
 
 

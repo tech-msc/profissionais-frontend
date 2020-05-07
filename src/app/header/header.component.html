@@ -1,49 +1,65 @@
-<!-- <header class="bg-black-70 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
-  <nav class="f6 fw6 ttu tracked">
-    <a
-      class=" "
-      title="Home"
-      [routerLink]="['/']"
-      routerLinkActive="active"
-      >Home</a
-    >
-
-    <a
-      class=""
-      [routerLink]="['/estabelecimento']"
-      routerLinkActive="active"
-      title="Estabelecimento"
-      >Estabelecimento</a
-    >
-
-    <a
-      class=" "
-      [routerLink]="['/profissional']"
-      routerLinkActive="active"
-      title="Profissional"
-      >Profissional</a
-    >
-  </nav>
-</header> -->
-
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info text-white">
   <a class="navbar-brand" routerLink="/">FRONTEND</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+  <div
+    class="collapse navbar-collapse f"
+    id="navbarNav"
+    data-target="#navbarNav"
+  >
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link"
-        [routerLink]="['/estabelecimento']" routerLinkActive="active" >Estabelecimentos</a>
+        <a
+          class="nav-link"
+          [routerLink]="['/estabelecimento']"
+          routerLinkActive="active"
+          >Estabelecimentos</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link"
-        [routerLink]="['/profissional']" routerLinkActive="active"
-        >Profissionais</a>
+        <a
+          class="nav-link"
+          [routerLink]="['/profissional']"
+          routerLinkActive="active"
+          >Profissionais</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="https://profissionais-api.herokuapp.com/swagger-ui.html"
+          target="_blank"
+          >Swagger Backend</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="https://github.com/matheusscardoso/profissionais_api"
+          target="_blank"
+          >GIT (Backend)</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="https://github.com/matheusscardoso/profissionais-frontend"
+          target="_blank"
+          >GIT (Frontend)</a
+        >
       </li>
     </ul>
   </div>
 </nav>
-
