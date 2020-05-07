@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "profissionais-fontend": {
+    "profissionais-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/profissionais-fontend",
+            "outputPath": "dist/profissionais-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "profissionais-fontend:build"
+            "browserTarget": "profissionais-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "profissionais-fontend:build:production"
+              "browserTarget": "profissionais-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "profissionais-fontend:build"
+            "browserTarget": "profissionais-frontend:build"
           }
         },
         "test": {
@@ -115,16 +115,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "profissionais-fontend:serve"
+            "devServerTarget": "profissionais-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "profissionais-fontend:serve:production"
+              "devServerTarget": "profissionais-frontend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "profissionais-fontend"
+  "defaultProject": "profissionais-frontend"
 }

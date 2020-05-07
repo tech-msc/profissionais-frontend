@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'profissionais-fontend'`, () => {
+  it(`should have as title 'profissionais-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('profissionais-fontend');
+    expect(app.title).toEqual('profissionais-frontend');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('profissionais-fontend app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('profissionais-frontend app is running!');
   });
 });
