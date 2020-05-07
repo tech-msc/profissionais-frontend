@@ -11,7 +11,8 @@ import { NgModule } from '@angular/core'
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
-  exports: [BsDropdownModule, ModalModule, TooltipModule],
+  exports: [BsDropdownModule, ModalModule, TooltipModule , BsDropdownModule],
 })
 export class AppBootstrapModule {}
